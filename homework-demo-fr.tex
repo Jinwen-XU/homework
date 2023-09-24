@@ -1,0 +1,59 @@
+\documentclass[11pt,
+  logo = {example-image},
+  % logo height = 2\baselineskip,
+  title in boldface,
+  % title in sffamily,
+  theorem in new line,
+]{homework}
+
+\UseLanguage{French}
+
+
+\title{Le sujet, semaine 1}
+\author{Prénom NOM}
+% \date{\today[only-year-month], Location}
+\date{\TheDate{2023-12-25}, Location}
+
+
+\begin{document}
+
+
+\bigskip\textcolor{gray!55}{(Si vous souhaitez écrire la réponse directement...)}
+
+\begin{problem}
+    Voici la solution / la preuve.
+\end{problem}
+
+
+\bigskip\textcolor{gray!55}{(Si vous souhaitez énoncer le problème puis écrire votre réponse...)}
+
+\begin{problem}
+    Vous pouvez également énoncer le problème ici...
+\end{problem}
+
+\begin{solution}
+    ... puis écrire la solution ici...
+\end{solution}
+
+\bigskip\textcolor{gray!55}{(Si vous préférez \textquote{Preuve} au lieu de \textquote{Solution}...)}
+
+\begin{solution}[Preuve]
+    ... ou une preuve comme ça...
+    \begin{lemma}\label{lem}
+        Un résultat auxiliaire.
+    \end{lemma}
+    \begin{proof}
+        La preuve \cref[de]{lem}.
+    \end{proof}
+    ... et les étapes restantes...
+\end{solution}
+
+
+\bigskip\textcolor{gray!55}{(Si vous préférez le style classique...)}
+
+\begin{proof}
+    L'environnement habituel \verb|proof| fonctionne également.
+\end{proof}
+
+
+\end{document}

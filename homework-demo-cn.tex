@@ -1,0 +1,59 @@
+\documentclass[11pt,
+  logo = {example-image},
+  % logo height = 2\baselineskip,
+  title in boldface,
+  % title in sffamily,
+  theorem in new line,
+]{homework}
+
+\UseLanguage{Chinese}
+
+
+\title{学科名称，第一周}
+\author{作者}
+% \date{\today[only-year-month]，地点}
+\date{\TheDate{2023-12-25}，地点}
+
+
+\begin{document}
+
+
+\bigskip\textcolor{gray!55}{(如果你打算直接写出解答…)}
+
+\begin{problem}
+    这里是解答/证明。
+\end{problem}
+
+
+\bigskip\textcolor{gray!55}{((如果你打算先陈述问题后再写出解答…))}
+
+\begin{problem}
+    你可以把问题陈述在这里…
+\end{problem}
+
+\begin{solution}
+    …然后把解答写在这里…
+\end{solution}
+
+\bigskip\textcolor{gray!55}{(如果比起\textquote{解}，你更希望写\textquote{证明}…)}
+
+\begin{solution}[证明]
+    …或者写一个这样的证明…
+    \begin{lemma}\label{lem}
+        一些辅助结果。
+    \end{lemma}
+    \begin{proof}
+        \Cref{lem}的证明。
+    \end{proof}
+    …剩余的步骤……
+\end{solution}
+
+
+\bigskip\textcolor{gray!55}{(如果你更喜欢传统的证明样式…)}
+
+\begin{proof}
+    \verb|proof| 环境依然可用。
+\end{proof}
+
+
+\end{document}

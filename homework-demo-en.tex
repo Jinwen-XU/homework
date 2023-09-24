@@ -1,0 +1,57 @@
+\documentclass[11pt,
+  logo = {example-image},
+  % logo height = 2\baselineskip,
+  title in boldface,
+  % title in sffamily,
+  theorem in new line,
+]{homework}
+
+
+\title{The Subject, Week 1}
+\author{Author NAME}
+% \date{\today[only-year-month], Location}
+\date{\TheDate{2023-12-25}, Location}
+
+
+\begin{document}
+
+
+\bigskip\textcolor{gray!55}{(If you wish to write the answer directly...)}
+
+\begin{problem}
+    Here lies the solution / proof.
+\end{problem}
+
+
+\bigskip\textcolor{gray!55}{(If you wish to state the problem and then write your answer...)}
+
+\begin{problem}
+    You may also state the problem here...
+\end{problem}
+
+\begin{solution}
+    ... and write the solution here...
+\end{solution}
+
+\bigskip\textcolor{gray!55}{(If you prefer \textquote{Proof} instead of \textquote{Solution}...)}
+
+\begin{solution}[Proof]
+    ... or a proof like this one...
+    \begin{lemma}\label{lem}
+        Some auxiliary result.
+    \end{lemma}
+    \begin{proof}
+        The proof of \cref{lem}.
+    \end{proof}
+    ... and the rest steps...
+\end{solution}
+
+
+\bigskip\textcolor{gray!55}{(If you prefer the classical proof style...)}
+
+\begin{proof}
+    The usual \verb|proof| environment also works.
+\end{proof}
+
+
+\end{document}
