@@ -1,6 +1,6 @@
 \documentclass[11pt,
   logo = {example-image},
-  % logo height = 2\baselineskip,
+  % logo height = 1cm,
   title in boldface,
   % title in sffamily,
   theorem in new line,
@@ -27,7 +27,7 @@
 
 \bigskip\textcolor{gray!55}{(Si vous souhaitez énoncer le problème puis écrire votre réponse...)}
 
-\begin{problem}
+\begin{problem}[Description brève]
     Vous pouvez également énoncer le problème ici...
 \end{problem}
 
@@ -39,14 +39,25 @@
 
 \begin{solution}[Preuve]
     ... ou une preuve comme ça...
-    \begin{lemma}\label{lem}
+    \begin{lemma}[Vous pouvez écrire ici quelques descriptions]\label{lem}
         Un résultat auxiliaire.
     \end{lemma}
     \begin{proof}
-        La preuve \cref[de]{lem}.
+        La preuve \cref[de]{lem}, où l'on utilise la formule suivante :
+        \[
+            \infty = \infty + 1.
+            \qedhere % pour placer le symbole QED au bon endroit
+        \]
     \end{proof}
     ... et les étapes restantes...
 \end{solution}
+
+
+\bigskip\textcolor{gray!55}{(Vous pouvez également écrire \texttt{answer} au lieu de \texttt{solution} si vous le souhaitez...)}
+
+\begin{answer}
+    L'utilisation de l'environnement \verb|answer| est exactement le même que celui de \verb|solution|.
+\end{answer}
 
 
 \bigskip\textcolor{gray!55}{(Si vous préférez le style classique...)}
@@ -54,6 +65,9 @@
 \begin{proof}
     L'environnement habituel \verb|proof| fonctionne également.
 \end{proof}
+
+
+\DNF<la description>
 
 
 \end{document}

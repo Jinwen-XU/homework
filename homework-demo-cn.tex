@@ -1,6 +1,6 @@
 \documentclass[11pt,
   logo = {example-image},
-  % logo height = 2\baselineskip,
+  % logo height = 1cm,
   title in boldface,
   % title in sffamily,
   theorem in new line,
@@ -18,16 +18,16 @@
 \begin{document}
 
 
-\bigskip\textcolor{gray!55}{(如果你打算直接写出解答…)}
+\bigskip\textcolor{gray!55}{（如果你打算直接写出解答…）}
 
 \begin{problem}
     这里是解答/证明。
 \end{problem}
 
 
-\bigskip\textcolor{gray!55}{((如果你打算先陈述问题后再写出解答…))}
+\bigskip\textcolor{gray!55}{（如果你打算先陈述问题后再写出解答…）}
 
-\begin{problem}
+\begin{problem}[问题简介]
     你可以把问题陈述在这里…
 \end{problem}
 
@@ -35,25 +35,39 @@
     …然后把解答写在这里…
 \end{solution}
 
-\bigskip\textcolor{gray!55}{(如果比起\textquote{解}，你更希望写\textquote{证明}…)}
+\bigskip\textcolor{gray!55}{（如果比起\textquote{解}，你更希望写\textquote{证明}…）}
 
 \begin{solution}[证明]
     …或者写一个这样的证明…
-    \begin{lemma}\label{lem}
+    \begin{lemma}[你可以在这里写一些注释]\label{lem}
         一些辅助结果。
     \end{lemma}
     \begin{proof}
-        \Cref{lem}的证明。
+        \Cref{lem}的证明，其中用到下面的公式：
+        \[
+            \infty = \infty + 1
+            \makebox[0pt][l]{\,。} % 句尾的句号
+            \qedhere               % 用来把 QED 放在正确的位置
+        \]
     \end{proof}
     …剩余的步骤……
 \end{solution}
 
+\bigskip\textcolor{gray!55}{（写\textquote{答}也是可以的…）}
 
-\bigskip\textcolor{gray!55}{(如果你更喜欢传统的证明样式…)}
+\begin{answer}
+    \verb|answer| 环境的用法和 \verb|solution| 是完全相同的。
+\end{answer}
+
+
+\bigskip\textcolor{gray!55}{（如果你更喜欢传统的证明样式…）}
 
 \begin{proof}
     \verb|proof| 环境依然可用。
 \end{proof}
+
+
+\DNF<一些描述>
 
 
 \end{document}

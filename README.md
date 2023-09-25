@@ -11,7 +11,7 @@ The current document class is for writing homework. It has the following feature
 - Page numbers are of the form `Page [current] of [total]`, which can help you ensure that there are no missing pages when you print your homework for submission.
 - Support writing problem statements and solutions (or proofs) in different colors.
 - Every statement and solution has its own QED symbol, in hollow or solid shape, respectively.
-- You may mark unfinished parts with `\DNF` or `\DNF<⟨remark⟩>` (meaning "did not finish") for reminding — this will give you a report on the unfinished parts at the end of your document.
+- You may mark unfinished parts with `\DNF` or `\DNF<⟨remark⟩>` (meaning "did not finish") for reminding — this will give you a clickable report on the unfinished parts at the end of your document.
 
 
 ## Usage
@@ -21,7 +21,7 @@ A typical homework document looks like this:
 ```latex
 \documentclass[11pt,
   logo = {image-file-of-your-university-logo},
-  % logo height = 2\baselineskip,
+  % logo height = 1cm,
   title in boldface,
   title in sffamily,
   theorem in new line,
@@ -65,7 +65,11 @@ A typical homework document looks like this:
         Some auxiliary result.
     \end{lemma}
     \begin{proof}
-        The proof of \cref{lem}.
+        The proof of \cref{lem}, where we use the following formula:
+        \[
+            \infty = \infty + 1.
+            \qedhere % To place the QED symbol in the right place
+        \]
     \end{proof}
     ... and the rest steps...
 \end{solution}
@@ -93,6 +97,25 @@ A few remarks:
 ### Regarding `\maketitle`
 
 The `\maketitle` has been automatically added just after `\begin{document}`, thus you don't need to write it by yourself. Note, however, that this also means that you cannot place `\title`, `author` and `\date` after `\begin{document}`.
+
+### Regarding the numbering
+
+A new counter named `homework` is defined, which is shared by the environments `problem`, `question` and `exercise`, thus you would see them numbered as `1`, `2`, `3`, etc. The other theorem-type environments are numbered within this counter `homework`, thus within, say, `Problem 1`, you would see them numbered as `Theorem 1.1`, `Lemma 1.2` and `Claim 1.3`, etc.
+
+Therefore, if you wish to manually change the numbering, you may directly access the value of the counter `homework`. Also, each theorem-type environment has its own counter, thus it would still work if you write `\setcounter{exercise}{10}`, but this would also affect the numbering of `problem` and `question`, so don't forget to reset the value as needed.
+
+If you wish them to be numbered separately, you may define new counters, say `problem-counter`, `question-counter` and `exercise-counter` via
+```latex
+\newcounter{problem-counter}
+\newcounter{question-counter}
+\newcounter{exercise-counter}
+```
+and then write this in your preamble:
+```latex
+\SetTheorem{problem}{shared counter=problem-counter}
+\SetTheorem{question}{shared counter=question-counter}
+\SetTheorem{exercise}{shared counter=exercise-counter}
+```
 
 
 # License

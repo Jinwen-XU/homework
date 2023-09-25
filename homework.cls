@@ -12,7 +12,7 @@
 \NeedsTeXFormat{LaTeX2e}[2022-06-01]
 \ProvidesExplClass
   {homework}
-  {2023/09/24} {}
+  {2023/09/25} {}
   {Document class for writing homework}
 
 \keys_define:nn { homework }
@@ -121,7 +121,22 @@
     , RU = { Решение }
   }
 
-\newcommand\soluline{\bgroup\markoverwith{\rule[-.45ex]{2pt}{.75pt}}\ULon}
+\projlib_langauge_define_multilingual_text:Nn \l__homework_answer_tl
+  {
+    , EN = { Answer }
+    , FR = { Réponse }
+    , DE = { Antwort }
+    , IT = { Risposta }
+    , PT = { Resposta }
+    , BR = { Resposta }
+    , ES = { Respuesta }
+    , CN = { 答 }
+    , TC = { 答 }
+    , JP = { 解答 }
+    , RU = { Ответ }
+  }
+
+\newcommand\soluline{\bgroup\markoverwith{\rule[-.45ex]{1pt}{.75pt}}\ULon}
 \NewDocumentEnvironment { solution } { O{ \l__homework_solution_tl } }
   {
     \setlength\abovedisplayskip{.3\baselineskip}
@@ -132,15 +147,28 @@
     \color{cyan!50!blue!90!main-text}
     \soluline{#1}\nobreakspace\nobreakspace
     \let\qedsymbol\customqedsymbol
-  }{\pushQED{\qed}\popQED\par}
+  }
+  {
+    \pushQED{\qed}
+    \popQED
+    \par
+  }
+
+\NewDocumentEnvironment { answer } { O{ \l__homework_answer_tl } }
+  {
+    \begin{solution}[#1]
+  }
+  {
+    \end{solution}
+  }
 
 %%================================
 %%  Configuration of the theorems
 %%================================
 
 \newcounter{homework}
-\SetTheorem{problem,question}{shared counter=homework}
-\SetTheorem{lemma,theorem,proposition,fact,remark}{number within=homework}
+\SetTheorem{problem,question,exercise}{shared counter=homework}
+\SetTheorem{definition,lemma,theorem,proposition,corollary,example,fact,remark,assertion,assumption,claim,conclusion,conjecture,construction,convention,notation,observation,property,recall}{number within=homework}
 
 \endinput
 %%
