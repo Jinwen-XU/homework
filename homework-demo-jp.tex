@@ -1,0 +1,75 @@
+\documentclass[11pt,
+  logo = {example-image},
+  % logo height = 1cm,
+  title in boldface,
+  % title in sffamily,
+  theorem in new line,
+  % twoside,
+]{homework}
+
+\UseLanguage{Japanese}
+
+
+\title{科目名、第 1 週}
+\author{著者名}
+% \date{\today、所在地}
+% \date{\today[only-year-month]、所在地}
+\date{\TheDate{2023-12-25}、所在地}
+
+
+\begin{document}
+
+
+\bigskip\textcolor{gray!55}{(ソリューションを直接書くつもりなら…)}
+
+\begin{problem}
+    これが答え/証明です。
+\end{problem}
+
+
+\bigskip\textcolor{gray!55}{（もし、問題を述べてからソリューションを書きたいのであれば...）}
+
+\begin{problem}[問題紹介]
+    ここに問題を述べて…
+\end{problem}
+
+\begin{solution}
+    …ここにソリューションを書くことができます...
+\end{solution}
+
+\bigskip\textcolor{gray!55}{（もし\textquote{解答}よりも\textquote{証明}を書きたいのなら...）}
+
+\begin{solution}[証明]
+    …または次のような証明を書きます...
+    \begin{lemma}[ここにコメントを書くことができます]\label{lem}
+        いくつかの補助的な結果。
+    \end{lemma}
+    \begin{proof}
+        これが\cref{lem}の証明です。次の式が使用されます：
+        \[
+            \infty = \infty + 1
+            \makebox[0pt][l]{\,。} % 文末のピリオド
+            \qedhere               % QED シンボルを正しい位置に配置するために使用されます
+        \]
+    \end{proof}
+    …そして残りのステップ…
+\end{solution}
+
+\bigskip\textcolor{gray!55}{（\texttt{answer} 環境を使用することもできます…）}
+
+\begin{answer}
+    \verb|answer| 環境は \verb|solution| 環境とまったく同じように使用されます。
+\end{answer}
+
+
+\bigskip\textcolor{gray!55}{（伝統的な証明スタイルがお好みなら…）}
+
+\begin{proof}
+    \verb|proof| 環境はまだ利用可能です。
+\end{proof}
+
+
+\DNF<いくつかの説明>
+
+
+\end{document}

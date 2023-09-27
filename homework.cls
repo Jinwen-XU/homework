@@ -12,7 +12,7 @@
 \NeedsTeXFormat{LaTeX2e}[2022-06-01]
 \ProvidesExplClass
   {homework}
-  {2023/09/25} {}
+  {2023/09/27} {}
   {Document class for writing homework}
 
 \keys_define:nn { homework }
@@ -98,7 +98,11 @@
 \RequirePackage { lastpage }
 \fancypagestyle { fancy }
   {
-    \rfoot{\small\color{main-text!27!paper} \l__homework_page_of_total_tl }
+    \if@twoside
+      \fancyfoot[RO,LE]{\small\color{main-text!27!paper} \l__homework_page_of_total_tl }
+    \else
+      \fancyfoot[R]{\small\color{main-text!27!paper} \l__homework_page_of_total_tl }
+    \fi
   }
 \pagestyle { fancy }
 

@@ -1,0 +1,75 @@
+\documentclass[11pt,
+  logo = {example-image},
+  % logo height = 1cm,
+  title in boldface,
+  % title in sffamily,
+  theorem in new line,
+  % twoside,
+]{homework}
+
+\UseLanguage{German}
+
+
+\title{Das Thema, Woche 1}
+\author{Vorname NAME}
+% \date{\today, der Standort}
+% \date{\today[only-year-month], der Standort}
+\date{\TheDate{2023-12-25}, der Standort}
+
+
+\begin{document}
+
+
+\bigskip\textcolor{gray!55}{(Wenn Sie die Antwort direkt schreiben möchten ...)}
+
+\begin{problem}
+    Hier liegt die Lösung / der Beweis.
+\end{problem}
+
+
+\bigskip\textcolor{gray!55}{(Wenn Sie das Problem angeben und dann Ihre Antwort schreiben möchten ...)}
+
+\begin{problem}[Kurze Beschreibung]
+    Sie können das Problem auch hier angeben ...
+\end{problem}
+
+\begin{solution}
+    ... und schreibe hier die Lösung ...
+\end{solution}
+
+\bigskip\textcolor{gray!55}{(Wenn Sie \textquote{Beweis} anstelle von \textquote{Lösung} bevorzugen ...)}
+
+\begin{solution}[Beweis]
+    ... oder ein Beweis wie dieser ...
+    \begin{lemma}[Sie können hier eine Beschreibung schreiben]\label{lem}
+        Einige zusätzlich Ergebnisse.
+    \end{lemma}
+    \begin{proof}
+        Der Beweis \cref[gen.]{lem}, wobei wir die folgende Formel verwenden: % oder der Beweis \cref[von]{lem}, oder der Beweis \cref[von, dat.]{lem}
+        \[
+            \infty = \infty + 1.
+            \qedhere % Um das QED-Symbol an der richtigen Stelle zu stellen
+        \]
+    \end{proof}
+    ... und die übrigen Schritte ...
+\end{solution}
+
+
+\bigskip\textcolor{gray!55}{(Wenn Sie möchten, können Sie auch \texttt{answer} anstelle von \texttt{solution} schreiben ...)}
+
+\begin{answer}
+    Die Verwendung der \verb|answer|-Umgebung ist genau gleich wie \verb|solution|.
+\end{answer}
+
+
+\bigskip\textcolor{gray!55}{(Wenn Sie den klassischen Proof-Stil bevorzugen ...)}
+
+\begin{proof}
+    Die übliche \verb|proof|-Umgebung funktioniert ebenfalls.
+\end{proof}
+
+
+\DNF<etwas Beschreibung>
+
+
+\end{document}

@@ -1,0 +1,75 @@
+\documentclass[11pt,
+  logo = {example-image},
+  % logo height = 1cm,
+  title in boldface,
+  % title in sffamily,
+  theorem in new line,
+  % twoside,
+]{homework}
+
+\UseLanguage{Traditional Chinese}
+
+
+\title{學科名稱，第一周}
+\author{作者}
+% \date{\today，地點}
+% \date{\today[only-year-month]，地點}
+\date{\TheDate{2023-12-25}，地點}
+
+
+\begin{document}
+
+
+\bigskip\textcolor{gray!55}{（如果你打算直接寫出解答…）}
+
+\begin{problem}
+    這裡是解答/證明。
+\end{problem}
+
+
+\bigskip\textcolor{gray!55}{（如果你打算先陳述問題後再寫出解答…）}
+
+\begin{problem}[問題簡介]
+    你可以把問題陳述在這裡…
+\end{problem}
+
+\begin{solution}
+    …然後把解答寫在這裡…
+\end{solution}
+
+\bigskip\textcolor{gray!55}{（如果比起\textquote{解}，你更希望寫\textquote{證明}…）}
+
+\begin{solution}[證明]
+    …或者寫一個這樣的證明…
+    \begin{lemma}[你可以在這裡寫一些註釋]\label{lem}
+        一些輔助結果。
+    \end{lemma}
+    \begin{proof}
+        \Cref{lem}的證明，其中用到下面的公式：
+        \[
+            \infty = \infty + 1
+            \makebox[0pt][l]{\,。} % 句尾的句號
+            \qedhere               % 用來把 QED 放在正確的位置
+        \]
+    \end{proof}
+    …剩餘的步驟…
+\end{solution}
+
+\bigskip\textcolor{gray!55}{（寫\textquote{答}也是可以的…）}
+
+\begin{answer}
+    \verb|answer| 環境的用法和 \verb|solution| 是完全相同的。
+\end{answer}
+
+
+\bigskip\textcolor{gray!55}{（如果你更喜歡傳統的證明樣式…）}
+
+\begin{proof}
+    \verb|proof| 環境仍可使用。
+\end{proof}
+
+
+\DNF<一些描述>
+
+
+\end{document}

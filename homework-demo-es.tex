@@ -1,0 +1,75 @@
+\documentclass[11pt,
+  logo = {example-image},
+  % logo height = 1cm,
+  title in boldface,
+  % title in sffamily,
+  theorem in new line,
+  % twoside,
+]{homework}
+
+\UseLanguage{Spanish}
+
+
+\title{El tema, semana 1}
+\author{Nombre APELLIDO}
+% \date{\today, Ubicación}
+% \date{\today[only-year-month], Ubicación}
+\date{\TheDate{2023-12-25}, Ubicación}
+
+
+\begin{document}
+
+
+\bigskip\textcolor{gray!55}{(Si desea escribir la respuesta directamente...)}
+
+\begin{problem}
+    Aquí está la solución / la prueba.
+\end{problem}
+
+
+\bigskip\textcolor{gray!55}{(Si desea plantear el problema y luego escribir su respuesta...)}
+
+\begin{problem}[Breve descripción]
+    También puedes plantear el problema aquí...
+\end{problem}
+
+\begin{solution}
+    ... y escribir la solución aquí...
+\end{solution}
+
+\bigskip\textcolor{gray!55}{(Si prefiere \textquote{Prueba} en lugar de \textquote{Solución}...)}
+
+\begin{solution}[Prueba]
+    ... o una prueba como ésta...
+    \begin{lemma}[Puedes escribir alguna descripción aquí]\label{lem}
+        Algún resultado auxiliar.
+    \end{lemma}
+    \begin{proof}
+        La prueba \cref[de]{lem}, donde usamos la siguiente fórmula:
+        \[
+            \infty = \infty + 1.
+            \qedhere % Para colocar el símbolo QED en el lugar correcto.
+        \]
+    \end{proof}
+    ... y el resto pasos...
+\end{solution}
+
+
+\bigskip\textcolor{gray!55}{(También puedes escribir \texttt{answer} en lugar de \texttt{solution} si lo deseas...)}
+
+\begin{answer}
+    El uso del entorno \verb|answer| es exactamente lo mismo que \verb|solution|.
+\end{answer}
+
+
+\bigskip\textcolor{gray!55}{(Si prefieres el estilo clásico de prueba...)}
+
+\begin{proof}
+    El entorno habitual de \verb|proof| también funciona.
+\end{proof}
+
+
+\DNF<alguna descripción>
+
+
+\end{document}
