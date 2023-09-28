@@ -7,6 +7,13 @@
   % twoside,
 ]{homework}
 
+%% For highlighting the code in this document
+\usepackage{newverbs}
+\newverbcommand{\cverb}{\color{red!50!orange}}{}
+
+%% Below is the main document
+
+
 \UseLanguage{German}
 
 
@@ -45,12 +52,16 @@
         Einige zusätzlich Ergebnisse.
     \end{lemma}
     \begin{proof}
-        Der Beweis \cref[gen.]{lem}, wobei wir die folgende Formel verwenden: % oder der Beweis \cref[von]{lem}, oder der Beweis \cref[von, dat.]{lem}
+        Der Beweis \cref[gen.]{lem}, wobei wir die folgende Formel verwenden (beachten Sie die Verwendung von \cverb|\qedhere|): % oder der Beweis \cref[von]{lem}, oder der Beweis \cref[von, dat.]{lem}
         \[
             \infty = \infty + 1.
-            \qedhere % Um das QED-Symbol an der richtigen Stelle zu stellen
+            \qedhere % Um das Q.E.D.-Symbol an der richtigen Stelle zu stellen.
         \]
     \end{proof}
+    \begin{fact}[Für dieses Ergebnis ist kein Beweis erforderlich]
+        \proofless
+        Verwenden Sie \cverb|\proofless| um den hohlen Kasten, der das Ende einer Theorem-artigen Umgebung markiert, in einen festen Kasten umwandeln.
+    \end{fact}
     ... und die übrigen Schritte ...
 \end{solution}
 
@@ -68,6 +79,47 @@
     Die übliche \verb|proof|-Umgebung funktioniert ebenfalls.
 \end{proof}
 
+
+\bigskip\textcolor{gray!55}{(Wenn Sie jede Unterfrage eines Problems einzeln beantworten möchten ...)}
+
+\begin{problem}[Ein Problem mit vielen Unterfragen]
+    \begin{enumerate}[itemsep=.5\baselineskip]
+        \item Die erste Frage.
+
+        \begin{solution}
+            Die Lösung der ersten Frage.
+        \end{solution}
+
+        \item Die zweite Frage.
+
+        \begin{enumerate}[itemsep=.3\baselineskip]
+            \item Die erste Unterfrage.
+
+            \begin{solution}
+                Die Lösung der ersten Unterfrage.
+            \end{solution}
+
+            \item Die zweite Unterfrage.
+
+            \begin{solution}
+                Die Lösung der zweiten Unterfrage.
+            \end{solution}
+
+        \end{enumerate}
+
+        \item Die dritte Frage.
+
+        \begin{solution}
+            Die Lösung der dritten Frage.
+        \end{solution}
+
+    \end{enumerate}
+    Verwenden Sie \cverb|\noqed| (oder \cverb|\noQED|) am Ende, um das Q.E.D.-Symbol zu unterdrücken, das das Ende des aktuellen Problems markiert.
+    \noQED
+\end{problem}
+
+
+\bigskip\textcolor{gray!55}{(Wenn es eine Frage gibt, für die Sie im Moment keine Lösung finden können ...)}
 
 \DNF<etwas Beschreibung>
 

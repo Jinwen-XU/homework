@@ -12,7 +12,7 @@
 \NeedsTeXFormat{LaTeX2e}[2022-06-01]
 \ProvidesExplClass
   {homework}
-  {2023/09/27} {}
+  {2023/09/28} {}
   {Document class for writing homework}
 
 \keys_define:nn { homework }
@@ -143,10 +143,6 @@
 \newcommand\soluline{\bgroup\markoverwith{\rule[-.45ex]{1pt}{.75pt}}\ULon}
 \NewDocumentEnvironment { solution } { O{ \l__homework_solution_tl } }
   {
-    \setlength\abovedisplayskip{.3\baselineskip}
-    \setlength\belowdisplayskip{.3\baselineskip}
-    \setlength\abovedisplayshortskip{.3\baselineskip}
-    \setlength\belowdisplayshortskip{.3\baselineskip}
     \par\noindent
     \color{cyan!50!blue!90!main-text}
     \soluline{#1}\nobreakspace\nobreakspace
@@ -170,9 +166,17 @@
 %%  Configuration of the theorems
 %%================================
 
-\newcounter{homework}
-\SetTheorem{problem,question,exercise}{shared counter=homework}
-\SetTheorem{definition,lemma,theorem,proposition,corollary,example,fact,remark,assertion,assumption,claim,conclusion,conjecture,construction,convention,notation,observation,property,recall}{number within=homework}
+\newcounter { homework }
+\SetTheorem { problem, question, exercise } { shared counter = homework }
+\SetTheorem { definition, lemma, theorem, proposition, corollary, example, fact, remark, assertion, assumption, claim, conclusion, conjecture, construction, convention, notation, observation, property, recall } { number within = homework }
+
+%%================================
+%%  Special cases for the QED
+%%================================
+
+\def\noQED{\let\popQED\relax}
+\let\noqed\noQED
+\def\proofless{\let\qedsymbol\customqedsymbol\let\simpleqedsymbol\customqedsymbol}
 
 \endinput
 %%

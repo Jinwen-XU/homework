@@ -7,6 +7,13 @@
   % twoside,
 ]{homework}
 
+%% For highlighting the code in this document
+\usepackage{newverbs}
+\newverbcommand{\cverb}{\color{red!50!orange}}{}
+
+%% Below is the main document
+
+
 \UseLanguage{Spanish}
 
 
@@ -45,12 +52,16 @@
         Algún resultado auxiliar.
     \end{lemma}
     \begin{proof}
-        La prueba \cref[de]{lem}, donde usamos la siguiente fórmula:
+        La prueba \cref[de]{lem}, donde usamos la siguiente fórmula (tenga en cuenta el uso de \cverb|\qedhere|):
         \[
             \infty = \infty + 1.
-            \qedhere % Para colocar el símbolo QED en el lugar correcto.
+            \qedhere % Para colocar el símbolo Q.E.D. en el lugar correcto.
         \]
     \end{proof}
+    \begin{fact}[Este resultado no requiere prueba]
+        \proofless
+        Utilice \cverb|\proofless| para cambiar la caja hueca que marca el final de un entorno de tipo teorema en una caja sólida.
+    \end{fact}
     ... y el resto pasos...
 \end{solution}
 
@@ -62,12 +73,56 @@
 \end{answer}
 
 
+\pagebreak
+
+
 \bigskip\textcolor{gray!55}{(Si prefieres el estilo clásico de prueba...)}
 
 \begin{proof}
     El entorno habitual de \verb|proof| también funciona.
 \end{proof}
 
+
+\bigskip\textcolor{gray!55}{(Si desea responder cada subpregunta de un problema individualmente...)}
+
+\begin{problem}[Un problema con muchas subpreguntas]
+    \begin{enumerate}[itemsep=.5\baselineskip]
+        \item La primera pregunta.
+
+        \begin{solution}
+            La solución de la primera pregunta.
+        \end{solution}
+
+        \item La segunda pregunta.
+
+        \begin{enumerate}[itemsep=.3\baselineskip]
+            \item La primera subpregunta.
+
+            \begin{solution}
+                La solución de la primera subpregunta.
+            \end{solution}
+
+            \item La segunda subpregunta.
+
+            \begin{solution}
+                La solución de la segunda subpregunta.
+            \end{solution}
+
+        \end{enumerate}
+
+        \item La tercera pregunta.
+
+        \begin{solution}
+            La solución de la tercera pregunta.
+        \end{solution}
+
+    \end{enumerate}
+    Utilice \cverb|\noqed| (o \cverb|\noQED|) al final para suprimir el símbolo Q.E.D. que marca el final del problema actual.
+    \noQED
+\end{problem}
+
+
+\bigskip\textcolor{gray!55}{(Si hay alguna pregunta que no sabes cómo resolver en este momento...)}
 
 \DNF<alguna descripción>
 

@@ -7,6 +7,13 @@
   % twoside,
 ]{homework}
 
+%% For highlighting the code in this document
+\usepackage{newverbs}
+\newverbcommand{\cverb}{\color{red!50!orange}}{}
+
+%% Below is the main document
+
+
 \UseLanguage{Chinese}
 
 
@@ -45,13 +52,17 @@
         一些辅助结果。
     \end{lemma}
     \begin{proof}
-        \Cref{lem}的证明，其中用到下面的公式：
+        这是\cref{lem}的证明，其中用到下面的公式（注意使用 \cverb|\qedhere|）：
         \[
             \infty = \infty + 1
             \makebox[0pt][l]{\,。} % 句尾的句号
-            \qedhere               % 用来把 QED 放在正确的位置
+            \qedhere               % 用来把 Q.E.D. 符号放在正确的位置
         \]
     \end{proof}
+    \begin{fact}[这个结论无需证明]
+        \proofless
+        使用 \cverb|\proofless| 可以将标记定理结束的空心方框变为实心方框。
+    \end{fact}
     …剩余的步骤……
 \end{solution}
 
@@ -68,6 +79,47 @@
     \verb|proof| 环境依然可用。
 \end{proof}
 
+
+\bigskip\textcolor{gray!55}{（如果你想为一个大问题中的每个小问题分别撰写解答…）}
+
+\begin{problem}[一个由很多小问题构成的大问题]
+    \begin{enumerate}[itemsep=.5\baselineskip]
+        \item 第一个问题。
+
+        \begin{solution}
+            第一个问题的解答。
+        \end{solution}
+
+        \item 第二个问题。
+
+        \begin{enumerate}[itemsep=.3\baselineskip]
+            \item 第一个小问。
+
+            \begin{solution}
+                第一个小问的解答。
+            \end{solution}
+
+            \item 第二个小问。
+
+            \begin{solution}
+                第二个小问的解答。
+            \end{solution}
+
+        \end{enumerate}
+
+        \item 第三个问题。
+
+        \begin{solution}
+            第三个问题的解答。
+        \end{solution}
+
+    \end{enumerate}
+    在末尾使用 \cverb|\noqed|（或 \cverb|\noQED|）可以取消标记用于当前问题结束的方框。
+    \noQED
+\end{problem}
+
+
+\bigskip\textcolor{gray!55}{（如果你有暂时解决不出来的问题…）}
 
 \DNF<一些描述>
 

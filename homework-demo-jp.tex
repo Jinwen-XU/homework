@@ -7,6 +7,13 @@
   % twoside,
 ]{homework}
 
+%% For highlighting the code in this document
+\usepackage{newverbs}
+\newverbcommand{\cverb}{\color{red!50!orange}}{}
+
+%% Below is the main document
+
+
 \UseLanguage{Japanese}
 
 
@@ -45,15 +52,23 @@
         いくつかの補助的な結果。
     \end{lemma}
     \begin{proof}
-        これが\cref{lem}の証明です。次の式が使用されます：
+        これが\cref{lem}の証明です。次の式が使用されます（\cverb|\qedhere| の使用に注意してください）：
         \[
             \infty = \infty + 1
             \makebox[0pt][l]{\,。} % 文末のピリオド
-            \qedhere               % QED シンボルを正しい位置に配置するために使用されます
+            \qedhere               % Q.E.D. シンボルを正しい位置に配置するために使用されます
         \]
     \end{proof}
+    \begin{fact}[この結果には証明の必要はない]
+        \proofless
+        \cverb|\proofless| を使用して、定理タイプの環境の終わりを示す中空のボックスを中実のボックスに変更します。
+    \end{fact}
     …そして残りのステップ…
 \end{solution}
+
+
+\enlargethispage*{\baselineskip}
+
 
 \bigskip\textcolor{gray!55}{（\texttt{answer} 環境を使用することもできます…）}
 
@@ -68,6 +83,47 @@
     \verb|proof| 環境はまだ利用可能です。
 \end{proof}
 
+
+\bigskip\textcolor{gray!55}{（問題の各小問に個別に回答したい場合は…）}
+
+\begin{problem}[多くの小問がある問題]
+    \begin{enumerate}[itemsep=.5\baselineskip]
+        \item 一番目の問題。
+
+        \begin{solution}
+            一番目の問題の解答。
+        \end{solution}
+
+        \item 二番目の問題。
+
+        \begin{enumerate}[itemsep=.3\baselineskip]
+            \item 一番目の小問。
+
+            \begin{solution}
+                一番目の小問の解答。
+            \end{solution}
+
+            \item 二番目の小問。
+
+            \begin{solution}
+                二番目の小問の解答。
+            \end{solution}
+
+        \end{enumerate}
+
+        \item 三番目の問題。
+
+        \begin{solution}
+            三番目の問題の解答。
+        \end{solution}
+
+    \end{enumerate}
+    現在の問題の終わりを示す Q.E.D. シンボルを表示しないようにするには、最後に \cverb|\noqed|（または \cverb|\noQED|）を使う。
+    \noQED
+\end{problem}
+
+
+\bigskip\textcolor{gray!55}{（一時的に解決できない問題がある場合は…）}
 
 \DNF<いくつかの説明>
 
