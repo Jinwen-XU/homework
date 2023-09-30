@@ -12,22 +12,27 @@
 \NeedsTeXFormat{LaTeX2e}[2022-06-01]
 \ProvidesExplClass
   {homework}
-  {2023/09/28} {}
+  {2023/09/29*} {}
   {Document class for writing homework}
 
 \keys_define:nn { homework }
   {
-    , logo        .tl_set:N     = \l__homework_logo_name_tl
-    , logo        .initial:n    = { }
-    , logo-height .dim_set:N    = \l__homework_logo_height_dim
-    , logo~height .dim_set:N    = \l__homework_logo_height_dim
-    , logo height .dim_set:N    = \l__homework_logo_height_dim
+    , logo          .tl_set:N     = \l__homework_logo_name_tl
+    , logo          .initial:n    = { }
+    , logo-height   .dim_set:N    = \l__homework_logo_height_dim
+    , logo~height   .dim_set:N    = \l__homework_logo_height_dim
+    , logo height   .dim_set:N    = \l__homework_logo_height_dim
 
-    , unknown     .code:n       = {
-                                    \PassOptionsToClass { \CurrentOption } { minimart }
-                                    \PassOptionsToClass { \CurrentOption } { einfart }
-                                    \PassOptionsToPackage { \CurrentOption } { ProjLib }
-                                  }
+    , formal-title  .bool_set:N   = \l__homework_formal_title_bool
+    , formal-title  .initial:n    = { false }
+    , formal~title  .bool_set:N   = \l__homework_formal_title_bool
+    , formal title  .bool_set:N   = \l__homework_formal_title_bool
+
+    , unknown       .code:n       = {
+                                      \PassOptionsToClass { \CurrentOption } { minimart }
+                                      \PassOptionsToClass { \CurrentOption } { einfart }
+                                      \PassOptionsToPackage { \CurrentOption } { ProjLib }
+                                    }
   }
 \ProcessKeyOptions [ homework ]
 
@@ -37,19 +42,98 @@
 
 \sys_if_engine_pdftex:TF
   {
-    \PassOptionsToClass { use style = classical } { minimart }
+    \PassOptionsToClass { use indent = false } { minimart }
     \LoadClass { minimart }
   }
   {
-    \PassOptionsToClass { use style = classical } { einfart }
+    \PassOptionsToClass { use indent = false } { einfart }
     \LoadClass { einfart }
   }
 
 \RequirePackage { ProjLib }
 
 %%================================
-%%  Insert the logo
+%%  Print the title
 %%================================
+
+\def\@pretitle{}
+
+\NewDocumentCommand \pretitle { m }
+  {
+    \def\@pretitle{#1}
+  }
+
+\renewcommand{\@maketitle}
+  {
+    \LocallyStopLineNumbers
+
+    % Insert the pretitle
+    \noindent{\@pretitle}\par
+
+    \bool_if:NTF \l__homework_formal_title_bool
+      {
+        \bigskip
+        \begin{center}
+          \let\footnote\thanks
+          {\minimalist_bfseries:\minimalist_scshape:\sffamily\Large\@title}\\\bigskip
+          \color{main-text!80!paper}
+          {\small\minimalist_scshape:\@author}
+          \par\smallskip\vspace{-\parskip}
+          {\small\@date}
+        \end{center}
+        \projlib_author_if_content_empty:nT { \@date } { \medskip }
+        \medskip\par
+      }
+      {
+        \vspace{-.5\baselineskip}
+
+        % Insert the main body of the title
+        \noindent
+        {\textcolor{main-text!27!paper}{\rule{\textwidth}{0.75pt}}}
+        \par
+        \vspace{-.5\baselineskip}
+
+        \dim_set:Nn \l_tmpa_dim { \pagetotal }
+
+        \begin{flushright}
+          \let\footnote\thanks
+          {\minimalist_bfseries:\minimalist_sffamily:\@title}\\\medskip
+          \color{main-text!80!paper}
+          {\small\minimalist_scshape:\@author}
+          \par\vspace{-\parskip}\vspace{2pt}
+          {\small\@date}
+        \end{flushright}
+        \vspace{-.5\baselineskip}
+        \projlib_author_if_content_empty:nTF { \@date }
+          {
+            \vspace{-.2\baselineskip}
+          }
+          {
+            \vspace{-.5\baselineskip}
+          }
+        {\textcolor{main-text!27!paper}{\rule{\textwidth}{0.75pt}}}
+        \par
+
+        \dim_set:Nn \l_tmpb_dim { \pagetotal - \l_tmpa_dim }
+
+        % Insert the logo
+        \tl_if_empty:NF \l__homework_logo_name_tl
+          {
+            \dim_compare:nNnT { \l__homework_logo_height_dim } < { 1pt }
+              {
+                \dim_set:Nn \l__homework_logo_height_dim { .75\l_tmpb_dim }
+              }
+            \dim_set:Nn \l_tmpa_dim { \l_tmpb_dim + 1.15\baselineskip }
+            \vspace { - \l_tmpa_dim }
+            \vspace { .5\l_tmpa_dim - .5\l__homework_logo_height_dim }
+            \homework_include_logo:nn { \l__homework_logo_height_dim } { \l__homework_logo_name_tl }
+            \vspace { .5\l_tmpa_dim - .5\l__homework_logo_height_dim }
+          }
+      }
+
+    \par
+    \ResumeLineNumbers
+  }
 
 \cs_new_protected:Nn \homework_include_logo:nn
   % #1 = height
@@ -61,19 +145,6 @@
 \AddToHook { begindocument/end }
   {
     \maketitle
-
-    \tl_if_empty:NF \l__homework_logo_name_tl
-      {
-        \dim_compare:nNnT { \l__homework_logo_height_dim } < { 1pt }
-          {
-            \dim_set:Nn \l__homework_logo_height_dim { .6\pagetotal }
-          }
-        \dim_set:Nn \l_tmpa_dim { \pagetotal + .33\baselineskip }
-        \vspace { - \l_tmpa_dim }
-        \vspace { .5\l_tmpa_dim - .5\l__homework_logo_height_dim }
-        \homework_include_logo:nn { \l__homework_logo_height_dim } { \l__homework_logo_name_tl }
-        \vspace { .5\l_tmpa_dim - .5\l__homework_logo_height_dim }
-      }
   }
 
 %%================================
