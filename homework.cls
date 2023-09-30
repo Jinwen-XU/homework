@@ -12,7 +12,7 @@
 \NeedsTeXFormat{LaTeX2e}[2022-06-01]
 \ProvidesExplClass
   {homework}
-  {2023/09/30} {}
+  {2023/10/01} {}
   {Document class for writing homework}
 
 \keys_define:nn { homework }
@@ -31,6 +31,20 @@
     , formal~title  .bool_set:N   = \l__homework_formal_title_bool
     , formal title  .bool_set:N   = \l__homework_formal_title_bool
 
+    , colored-solution .tl_set:N  = \l__homework_solution_color_tl
+    , colored-solution .initial:n = { main-text }
+    , colored-solution .default:n = { cyan!50!blue!90!main-text }
+    , colored~solution .tl_set:N  = \l__homework_solution_color_tl
+    , colored~solution .default:n = { cyan!50!blue!90!main-text }
+    , colored solution .tl_set:N  = \l__homework_solution_color_tl
+    , colored solution .default:n = { cyan!50!blue!90!main-text }
+    , colored-answer   .tl_set:N  = \l__homework_solution_color_tl
+    , colored-answer   .default:n = { cyan!50!blue!90!main-text }
+    , colored~answer   .tl_set:N  = \l__homework_solution_color_tl
+    , colored~answer   .default:n = { cyan!50!blue!90!main-text }
+    , colored answer   .tl_set:N  = \l__homework_solution_color_tl
+    , colored answer   .default:n = { cyan!50!blue!90!main-text }
+
     , hide-solution .bool_set:N   = \l__homework_hide_solution_bool
     , hide-solution .initial:n    = { false }
     , hide~solution .bool_set:N   = \l__homework_hide_solution_bool
@@ -38,6 +52,11 @@
     , hide-answer   .bool_set:N   = \l__homework_hide_solution_bool
     , hide~answer   .bool_set:N   = \l__homework_hide_solution_bool
     , hide answer   .bool_set:N   = \l__homework_hide_solution_bool
+
+    , remove-qed    .bool_set:N   = \l__homework_no_qed_bool
+    , remove-qed    .initial:n    = { false }
+    , remove~qed    .bool_set:N   = \l__homework_no_qed_bool
+    , remove qed    .bool_set:N   = \l__homework_no_qed_bool
 
     , unknown       .code:n       = {
                                       \PassOptionsToClass { \CurrentOption } { minimart }
@@ -53,11 +72,19 @@
 
 \sys_if_engine_pdftex:TF
   {
-    \PassOptionsToClass { use indent = false, theorem with qed } { minimart }
+    \bool_if:NF \l__homework_no_qed_bool
+      {
+        \PassOptionsToClass { theorem with qed } { minimart }
+      }
+    \PassOptionsToClass { use indent = false } { minimart }
     \LoadClass { minimart }
   }
   {
-    \PassOptionsToClass { use indent = false, theorem with qed } { einfart }
+    \bool_if:NF \l__homework_no_qed_bool
+      {
+        \PassOptionsToClass { theorem with qed } { einfart }
+      }
+    \PassOptionsToClass { use indent = false } { einfart }
     \LoadClass { einfart }
   }
 
@@ -219,7 +246,7 @@
     \par
     \topsep0\p@\relax
     \trivlist
-    \color{cyan!50!blue!90!main-text}
+    \color{\l__homework_solution_color_tl}
     \item[\hskip\labelsep\soluline{#1}\nobreakspace\nobreakspace]
     \let\qedsymbol\customqedsymbol
     \ignorespaces
