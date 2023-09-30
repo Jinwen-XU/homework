@@ -31,6 +31,14 @@
     , formal~title  .bool_set:N   = \l__homework_formal_title_bool
     , formal title  .bool_set:N   = \l__homework_formal_title_bool
 
+    , hide-solution .bool_set:N   = \l__homework_hide_solution_bool
+    , hide-solution .initial:n    = { false }
+    , hide~solution .bool_set:N   = \l__homework_hide_solution_bool
+    , hide solution .bool_set:N   = \l__homework_hide_solution_bool
+    , hide-answer   .bool_set:N   = \l__homework_hide_solution_bool
+    , hide~answer   .bool_set:N   = \l__homework_hide_solution_bool
+    , hide answer   .bool_set:N   = \l__homework_hide_solution_bool
+
     , unknown       .code:n       = {
                                       \PassOptionsToClass { \CurrentOption } { minimart }
                                       \PassOptionsToClass { \CurrentOption } { einfart }
@@ -208,15 +216,17 @@
 \newcommand\soluline{\bgroup\markoverwith{\rule[-.45ex]{1pt}{.75pt}}\ULon}
 \NewDocumentEnvironment { solution } { O{ \l__homework_solution_tl } }
   {
-    \par\noindent
+    \par
+    \topsep0\p@\relax
+    \trivlist
     \color{cyan!50!blue!90!main-text}
-    \soluline{#1}\nobreakspace\nobreakspace
+    \item[\hskip\labelsep\soluline{#1}\nobreakspace\nobreakspace]
     \let\qedsymbol\customqedsymbol
+    \ignorespaces
   }
   {
     \pushQED{\qed}
-    \popQED
-    \par
+    \popQED\endtrivlist\@endpefalse
   }
 
 \NewDocumentEnvironment { answer } { O{ \l__homework_answer_tl } }
@@ -234,6 +244,43 @@
 \newcounter { homework }
 \SetTheorem { problem, question, exercise } { shared counter = homework }
 \SetTheorem { definition, lemma, theorem, proposition, corollary, example, fact, remark, assertion, assumption, claim, conclusion, conjecture, construction, convention, notation, observation, property, recall } { number within = homework }
+
+%%================================
+%%  Hide solution
+%%================================
+
+\RequirePackage { verbatim }
+
+\bool_if:NT \l__homework_hide_solution_bool
+  {
+    \let\solution=\comment
+    \let\endsolution=\endcomment
+    \let\answer=\comment
+    \let\endanswer=\endcomment
+  }
+
+\prg_new_conditional:Nnn \homework_if_solution_shown: { T, F, TF }
+  {
+    \bool_if:NTF \l__homework_hide_solution_bool
+      { \prg_return_false: }
+      { \prg_return_true: }
+  }
+\NewCommandCopy \IfSolutionT  \homework_if_solution_shown:T
+\NewCommandCopy \IfSolutionF  \homework_if_solution_shown:F
+\NewCommandCopy \IfSolutionTF \homework_if_solution_shown:TF
+\NewCommandCopy \IfAnswerT    \homework_if_solution_shown:T
+\NewCommandCopy \IfAnswerF    \homework_if_solution_shown:F
+\NewCommandCopy \IfAnswerTF   \homework_if_solution_shown:TF
+
+\bool_if:NTF \l__homework_hide_solution_bool
+  {
+    \setlist*[1]{itemsep=0\baselineskip, parsep=\parskip}
+    \setlist*[2]{itemsep=0\baselineskip, parsep=\parskip}
+  }
+  {
+    \setlist*[1]{itemsep=.5\baselineskip, parsep=\parskip}
+    \setlist*[2]{itemsep=.3\baselineskip, parsep=\parskip}
+  }
 
 \endinput
 %%

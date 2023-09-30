@@ -40,12 +40,13 @@ A typical homework document looks like this:
 
 ```latex
 \documentclass[a4paper, 11pt,
-  logo = {image-file-of-your-university-logo}, % Remove this line if you don't want logo presented.
-  % logo height = 1cm, % In case you are not satisfied with the default logo size.
+  logo = {image-of-university-logo},    % Remove this line if you don't want logo presented.
+  % logo height = 1cm,                  % In case you are not satisfied with the default logo size.
   title in boldface,
   title in sffamily,
   theorem in new line,
-  % twoside,
+  % twoside,                            % Use this option if you wish to use double-sided printing
+  % hide solution,                      % Use this option to hide the solutions/answers
 ]{homework}
 
 \UseLanguage{...} % If you wish to write your homework in languages other than English.
@@ -135,6 +136,42 @@ A typical homework document looks like this:
 \end{document}
 ```
 
+Alternatively, if you are making an exercise sheet and prefer a more formal title style, you may write the title part as:
+```latex
+\documentclass[a4paper,
+  formal title,
+  title in boldface,
+  % hide solution,          % Use this option to hide the solutions/answers
+]{homework}
+
+
+% EDIT THE FOLLOWING INFORMATION AS NEEDED
+
+\pretitle{%
+    \scshape
+                    The University
+    \hfill
+                    The Program \& Level
+    \\
+                    Course ID \& Course Name
+    \hfill
+                    Year 2023--24
+}
+
+\title{%
+                    Sheet 1. Title of the current file
+}
+\author{}
+\date{%
+                    % \TheDate{2023-12-25}
+}
+
+
+\begin{document}
+    ...
+\end{document}
+```
+
 > You may refer to the demo documents for more examples.
 
 Regarding some of the class options:
@@ -142,9 +179,11 @@ Regarding some of the class options:
 1) The options `title in boldface`, `title in sffamily` or even `title in scshape` are for configuring the text effect of the title line, the sectional titles and theorem names.
 1) The option `theorem in new line` is for showing the problem / theorem name, numbering and description in a separate line, for the sake of clarity.
 1) The option `twoside` is for double-sided printing.
+1) The option `formal title` is for enabling the formal title style.
+1) The option `hide solution` (or `hide answer`) is for hiding the `solution` and `answer` environments.
 
 A few extra remarks:
-1) `\title`, `\author` and `\date` should be placed before `\begin{document}`.
+1) `\title`, `\author` and `\date`, etc. should be placed before `\begin{document}`.
 1) Since the problem, solution and other theorem-type environments have a Q.E.D. symbol at the end, if your text ends with a displayed equation or a `itemize`/`enumerate`/`description` list, then you would need to add a `\qedhere` so that the Q.E.D. symbol is placed in the right place. There are also `\proofless` and `\noQED` for controlling the Q.E.D. symbol, see the demo documents for their usage.
 1) Every theorem-type environment has a starred unnumbered version, for instance, `claim*` for unnumbered `claim`, `lemma*` for unnumbered `lemma`, etc.
 1) It is recommended to use clever reference, such as `\cref`, `\Cref` and `\namecref`, etc. For languages such as French and German, to ensure that the generated referencing text is grammatically correct, you may write the definite article and/or declension as optional argument for the referencing commands, for instance, `\cref[à]{⟨label⟩}` or `\cref[de]{⟨label⟩}` for French, `\cref[nom.]{⟨label⟩}` or `\cref[von,dat.]{⟨label⟩}` for German, etc.
