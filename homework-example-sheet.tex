@@ -1,0 +1,91 @@
+\documentclass[11pt,
+  formal title,
+  title in boldface,
+  % title in sffamily,
+  % theorem in new line,
+  % twoside,
+]{homework}
+
+
+% EDIT THE FOLLOWING INFORMATION AS NEEDED
+
+\pretitle{%
+    \scshape
+                    The University
+    \hfill
+                    The Program \& Level
+    \\
+                    Course ID \& Course Name
+    \hfill
+                    Year 2023--24
+}
+
+\title{%
+                    Sheet 1. Title of the current file
+}
+\author{}
+\date{%
+                    % \TheDate{2023-12-25}
+}
+
+
+\begin{document}
+
+
+Here starts the main text.
+
+
+\section*{First theme}
+
+We shall show that...
+
+\begin{problem}
+    A preliminary result.
+\end{problem}
+
+\begin{problem}[Brief description]
+    One step ahead.
+
+    \blindtext
+\end{problem}
+
+At this stage, we may conclude that...
+
+
+\section*{Second theme}
+
+Now we look at...
+
+\begin{problem}[Some prepration]
+    This is the prepration for...
+    \begin{enumerate}%[itemsep=.5\baselineskip]
+        \item First question.
+        \item Second question.
+        \item Third question.
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}[Another problem with many sub-questions]
+    \leavevmode % so that the first item start in new line
+    \begin{enumerate}[itemsep=.5\baselineskip]
+        \item First question.
+            \\[.5\baselineskip]
+            \blindtext
+        \item Second question.
+        \begin{enumerate}[itemsep=.3\baselineskip]
+            \item First sub-question.
+                \\[.3\baselineskip]
+                \blindtext
+            \item Second sub-question.
+                \\[.3\baselineskip]
+                \blindtext
+        \end{enumerate}
+        \item Third question.
+            \\[.5\baselineskip]
+            \blindtext
+        \item Conclusion.
+    \end{enumerate}
+\end{problem}
+
+
+\end{document}

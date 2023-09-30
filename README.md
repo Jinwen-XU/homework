@@ -138,7 +138,7 @@ A typical homework document looks like this:
 > You may refer to the demo documents for more examples.
 
 Regarding some of the class options:
-1) The logo image can be included via the class option `logo = {⟨image file name⟩}`, and if you are not satisfied with its default size, then you may manually specify the size via the option `logo height = {⟨height⟩}`. If you do not want to show any logo in the title bar, you may simply remove the option `logo = {⟨image file name⟩}`.
+1) The logo image can be included via the class option `logo = {⟨image file name⟩}`, and if you are not satisfied with its default size, then you may manually specify the size via the option `logo height = {⟨height⟩}` or `logo width = {width}`. If you do not want to show any logo in the title bar, you may simply remove the option `logo = {⟨image file name⟩}`.
 1) The options `title in boldface`, `title in sffamily` or even `title in scshape` are for configuring the text effect of the title line, the sectional titles and theorem names.
 1) The option `theorem in new line` is for showing the problem / theorem name, numbering and description in a separate line, for the sake of clarity.
 1) The option `twoside` is for double-sided printing.

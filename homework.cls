@@ -12,7 +12,7 @@
 \NeedsTeXFormat{LaTeX2e}[2022-06-01]
 \ProvidesExplClass
   {homework}
-  {2023/09/29*} {}
+  {2023/09/30} {}
   {Document class for writing homework}
 
 \keys_define:nn { homework }
@@ -22,6 +22,9 @@
     , logo-height   .dim_set:N    = \l__homework_logo_height_dim
     , logo~height   .dim_set:N    = \l__homework_logo_height_dim
     , logo height   .dim_set:N    = \l__homework_logo_height_dim
+    , logo-width    .dim_set:N    = \l__homework_logo_width_dim
+    , logo~width    .dim_set:N    = \l__homework_logo_width_dim
+    , logo width    .dim_set:N    = \l__homework_logo_width_dim
 
     , formal-title  .bool_set:N   = \l__homework_formal_title_bool
     , formal-title  .initial:n    = { false }
@@ -56,11 +59,11 @@
 %%  Print the title
 %%================================
 
-\def\@pretitle{}
+\newcommand\@pretitle{}
 
-\NewDocumentCommand \pretitle { m }
+\NewDocumentCommand \pretitle { +m }
   {
-    \def\@pretitle{#1}
+    \renewcommand{\@pretitle}{#1}
   }
 
 \renewcommand{\@maketitle}
@@ -75,9 +78,9 @@
         \bigskip
         \begin{center}
           \let\footnote\thanks
-          {\minimalist_bfseries:\minimalist_scshape:\sffamily\Large\@title}\\\bigskip
+          {\minimalist_bfseries:\minimalist_sffamily:\minimalist_scshape:\Large\@title}\\\bigskip
           \color{main-text!80!paper}
-          {\small\minimalist_scshape:\@author}
+          {\small\@author}
           \par\smallskip\vspace{-\parskip}
           {\small\@date}
         \end{center}
@@ -85,61 +88,51 @@
         \medskip\par
       }
       {
-        \vspace{-.5\baselineskip}
-
-        % Insert the main body of the title
-        \noindent
-        {\textcolor{main-text!27!paper}{\rule{\textwidth}{0.75pt}}}
-        \par
-        \vspace{-.5\baselineskip}
-
-        \dim_set:Nn \l_tmpa_dim { \pagetotal }
-
-        \begin{flushright}
-          \let\footnote\thanks
-          {\minimalist_bfseries:\minimalist_sffamily:\@title}\\\medskip
-          \color{main-text!80!paper}
-          {\small\minimalist_scshape:\@author}
-          \par\vspace{-\parskip}\vspace{2pt}
-          {\small\@date}
-        \end{flushright}
-        \vspace{-.5\baselineskip}
-        \projlib_author_if_content_empty:nTF { \@date }
-          {
-            \vspace{-.2\baselineskip}
-          }
-          {
-            \vspace{-.5\baselineskip}
-          }
-        {\textcolor{main-text!27!paper}{\rule{\textwidth}{0.75pt}}}
-        \par
-
-        \dim_set:Nn \l_tmpb_dim { \pagetotal - \l_tmpa_dim }
-
-        % Insert the logo
-        \tl_if_empty:NF \l__homework_logo_name_tl
-          {
-            \dim_compare:nNnT { \l__homework_logo_height_dim } < { 1pt }
-              {
-                \dim_set:Nn \l__homework_logo_height_dim { .75\l_tmpb_dim }
-              }
-            \dim_set:Nn \l_tmpa_dim { \l_tmpb_dim + 1.15\baselineskip }
-            \vspace { - \l_tmpa_dim }
-            \vspace { .5\l_tmpa_dim - .5\l__homework_logo_height_dim }
-            \homework_include_logo:nn { \l__homework_logo_height_dim } { \l__homework_logo_name_tl }
-            \vspace { .5\l_tmpa_dim - .5\l__homework_logo_height_dim }
-          }
+        \begin{tcolorbox}[
+          enhanced~jigsaw, sharp~corners,
+          sidebyside,
+          % sidebyside~adapt=left,
+          lefthand~width = .33\linewidth,
+          lower~separated = false,
+          toprule = .75pt, bottomrule = .75pt,
+          leftrule = 0pt, rightrule = 0pt,
+          boxsep = 0pt,
+          top = 1.5ex, bottom = 1.5ex,
+          left = 0pt, right = 0pt,
+          colframe = main-text!27!paper,
+          colback = paper,
+        ]
+          \tl_if_empty:NF \l__homework_logo_name_tl
+            {
+              \dim_compare:nNnTF { \l__homework_logo_height_dim } < { 1pt }
+                {% height not given
+                  \dim_compare:nNnTF { \l__homework_logo_width_dim } < { 1pt }
+                    {% width not given
+                      \includegraphics [ height = 1.5cm ] { \l__homework_logo_name_tl }
+                    }
+                    {% width given
+                      \includegraphics [ width = \l__homework_logo_width_dim ] { \l__homework_logo_name_tl }
+                    }
+                }
+                {% height given
+                  \includegraphics [ height = \l__homework_logo_height_dim ] { \l__homework_logo_name_tl }
+                }
+            }
+          \tcblower
+          \begin{flushright}
+            \let\footnote\thanks
+            {\minimalist_bfseries:\minimalist_sffamily:\@title}\\\medskip
+            \color{main-text!80!paper}
+            {\small\minimalist_scshape:\@author}
+            \par\vspace{-\parskip}\vspace{2pt}
+            {\small\@date}
+          \end{flushright}
+          \vspace{-2pt}
+        \end{tcolorbox}
       }
 
     \par
     \ResumeLineNumbers
-  }
-
-\cs_new_protected:Nn \homework_include_logo:nn
-  % #1 = height
-  % #2 = name
-  {
-    \includegraphics [ height = #1 ] { #2 }
   }
 
 \AddToHook { begindocument/end }
