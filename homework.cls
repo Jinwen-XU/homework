@@ -45,11 +45,11 @@
 
 \sys_if_engine_pdftex:TF
   {
-    \PassOptionsToClass { use indent = false } { minimart }
+    \PassOptionsToClass { use indent = false, theorem with qed } { minimart }
     \LoadClass { minimart }
   }
   {
-    \PassOptionsToClass { use indent = false } { einfart }
+    \PassOptionsToClass { use indent = false, theorem with qed } { einfart }
     \LoadClass { einfart }
   }
 
@@ -129,6 +129,7 @@
           \end{flushright}
           \vspace{-2pt}
         \end{tcolorbox}
+        \vspace{\baselineskip}
       }
 
     \par
@@ -233,14 +234,6 @@
 \newcounter { homework }
 \SetTheorem { problem, question, exercise } { shared counter = homework }
 \SetTheorem { definition, lemma, theorem, proposition, corollary, example, fact, remark, assertion, assumption, claim, conclusion, conjecture, construction, convention, notation, observation, property, recall } { number within = homework }
-
-%%================================
-%%  Special cases for the QED
-%%================================
-
-\def\noQED{\let\popQED\relax}
-\let\noqed\noQED
-\def\proofless{\let\qedsymbol\customqedsymbol\let\simpleqedsymbol\customqedsymbol}
 
 \endinput
 %%
