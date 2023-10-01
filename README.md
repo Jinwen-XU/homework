@@ -4,7 +4,7 @@
 
 ## Introduction
 
-The current document class is for writing homework. It has the following features.
+The current document class is for writing homework or assignment. It has the following features.
 - Simple and clear interface.
 - Built-in support for many theorem-type environments, already configured and ready to use (in the mean time also very customizable, via `\SetTheorem`), with clever referencing supported.
 - Multilingual support: currently supporting Chinese (both simplified and traditional), English, French, German, Italian, Japanese, Portuguese (European and Brazilian), Russian and Spanish.
@@ -35,6 +35,10 @@ These are necessary if you wish to write your document in Chinese (either simpli
 
 
 ## Usage
+
+> It is recommended that you start by looking at one of the demo documents that suits your need and edit the code there to get your own template.
+
+> If you don't find what you were expecting, or if you would like some elements to be changed or improved, feel free to post a feature request via [the GitHub issue](https://github.com/Jinwen-XU/homework/issues).
 
 A typical homework document looks like this:
 

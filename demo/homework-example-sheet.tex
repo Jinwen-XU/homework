@@ -6,7 +6,7 @@
   % theorem in new line,
   % remove qed,
   colored solution,
-  % hide solution,          % Use this option to hide the solutions/answers
+  hide solution,          % Use this option to hide the solutions/answers
 ]{homework}
 
 
@@ -45,6 +45,7 @@ We shall show that...
 \begin{problem}
     A preliminary result.
 \end{problem}
+
 \begin{solution}
     \blindtext
 \end{solution}
@@ -54,6 +55,7 @@ We shall show that...
 
     \blindtext
 \end{problem}
+
 \begin{solution}
     \blindtext[2]
 \end{solution}
@@ -66,61 +68,90 @@ At this stage, we may conclude that...
 Now we look at...
 
 \begin{problem}[Some prepration]
+
     This is the prepration for...
-    \begin{enumerate}%[itemsep=.5\baselineskip]
-        \item First question.
-        \begin{solution}
-            \blindtext
-        \end{solution}
-        \item Second question.
-        \begin{solution}
-            \blindtext
-        \end{solution}
-        \item Third question.
-        \qedhere
-        \begin{solution}
-            \blindtext
-        \end{solution}
+
+    \begin{enumerate}
+
+        \item
+            First question.
+
+            \begin{solution}
+                \blindtext
+            \end{solution}
+
+        \item
+            Second question.
+
+            \begin{solution}
+                \blindtext
+            \end{solution}
+
+        \item
+            Third question.
+            \qedhere
+
+            \begin{solution}
+                \blindtext
+            \end{solution}
+
     \end{enumerate}
 \end{problem}
 
 \begin{problem}[Another problem with many sub-questions]
     \leavevmode % so that the first item start in new line
-    \begin{enumerate}%[itemsep=.5\baselineskip]
-        \item First question.
+    \begin{enumerate}
+
+        \item
+            First question.
 
             \blindtext
 
             \begin{solution}
                 \blindtext[2]
             \end{solution}
-        \item Second question.
-        \begin{enumerate}%[itemsep=.3\baselineskip]
-            \item First sub-question.
+
+        \item
+            Second question.
+
+        \begin{enumerate}
+            \item
+                First sub-question.
 
                 \blindtext
 
                 \begin{solution}
                     \blindtext[2]
                 \end{solution}
-            \item Second sub-question.
-                \\[.3\baselineskip]
+
+            \item
+                Second sub-question.
+
                 \blindtext
+
                 \begin{solution}
                     \blindtext[2]
                 \end{solution}
+
         \end{enumerate}
-        \item Third question.
-            \\[.5\baselineskip]
+
+        \item
+            Third question.
+
             \blindtext[2]
+
             \begin{solution}
                 \blindtext[2]
             \end{solution}
-        \item Conclusion.
-        \qedhere
-        \begin{solution}
-            \blindtext
-        \end{solution}
+
+        \item
+            Conclusion.
+            \qedhere
+
+            \begin{solution}
+                \blindtext
+            \end{solution}
+
     \end{enumerate}
 \end{problem}
 

@@ -240,11 +240,25 @@
     , RU = { Ответ }
   }
 
+\newlist{soluenumerate}{enumerate}{3}
+\setlist[soluenumerate]{labelsep=*, leftmargin=*}
+\setlist[soluenumerate,1]{label = \normalfont$\big(\mskip-.5mu$\arabic*$\mskip-.5mu\big)$,
+    ref = \normalfont\color{.!45!paper}$\big(\mskip-.5mu$\arabic*$\mskip-.5mu\big)$,
+    leftmargin= \l__minimalist_item_indentation_dim + 2em }
+\setlist[soluenumerate,2]{label = \normalfont$\big(\mskip-.5mu$\roman*$\mskip-.5mu\big)$,
+    ref = \normalfont\color{.!45!paper}$\big(\mskip-.5mu$\arabic{soluenumeratei}.\roman*$\mskip-.5mu\big)$}
+\setlist[soluenumerate,3]{label = \normalfont$\big(\mskip-.5mu$\emph{\alph*}$\mskip-.5mu\big)$,
+    ref = \normalfont\color{.!45!paper}$\big(\mskip-.5mu$\arabic{soluenumeratei}.\roman{soluenumerateii}.\emph{\alph*}$\mskip-.5mu\big)$}
+
 \newcommand\soluline{\bgroup\markoverwith{\rule[-.45ex]{1pt}{.75pt}}\ULon}
 \NewDocumentEnvironment { solution } { O{ \l__homework_solution_tl } }
   {
     \par
     \topsep0\p@\relax
+    \let\enumerate\soluenumerate
+    \let\endenumerate\endsoluenumerate
+    \setlist*[1]{itemsep=0\baselineskip, parsep=.5\parskip}
+    \setlist*[2]{itemsep=0\baselineskip, parsep=.5\parskip}
     \trivlist
     \color{\l__homework_solution_color_tl}
     \item[\hskip\labelsep\soluline{#1}\nobreakspace\nobreakspace]
@@ -305,7 +319,7 @@
     \setlist*[2]{itemsep=0\baselineskip, parsep=\parskip}
   }
   {
-    \setlist*[1]{itemsep=.5\baselineskip, parsep=\parskip}
+    \setlist*[1]{itemsep=.5\baselineskip, parsep=\parskip, after*=\medskip}
     \setlist*[2]{itemsep=.3\baselineskip, parsep=\parskip}
   }
 
