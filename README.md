@@ -230,6 +230,11 @@ and then write this in your preamble:
 ```
 
 
-# License
+## Acknowledgement
+
+The author would like to thank David García-Zelada for his valuable help with the Spanish language. He kindly demonstrated to me the difference between the "Tutoyer" and "Vouvoyer" version, patiently corrected many inaccuracies in the demo documents, and also pointed out a few improper translations in some of my other packages.
+
+
+## License
 
 This work is released under the LaTeX Project Public License, v1.3c or later.
