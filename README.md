@@ -31,7 +31,8 @@ If you are using a Unicode TeX engine, then the current document class requires 
   - Source Han Mono, [go to its Release page](https://github.com/adobe-fonts/source-han-mono/releases).
   > It is recommended to download the Super-OTC version, so that the total download size would be smaller, and the installation would be easier.
 
-These are necessary if you wish to write your document in Chinese (either simplified or traditional) or Japanese. Also, without these fonts installed, the compilation speed might be much slower if you use XeLaTeX or LuaLaTeX to compile your document.
+These are necessary if you wish to write your document in Chinese (either simplified or traditional) or Japanese.
+Also, without these fonts installed, the compilation speed might be much slower — the compilation would still pass, but the system shall spend (quite) some time verifying that the fonts are indeed missing before switching to the fallback fonts.
 
 
 ## Usage
@@ -208,7 +209,9 @@ A few extra remarks:
 
 #### Regarding `\maketitle`
 
-The `\maketitle` has been automatically added just after `\begin{document}`, thus you don't need to write it by yourself. Note, however, that this also means that you cannot place `\title`, `author` and `\date` after `\begin{document}`.
+If the title is given and is not empty, then `\maketitle` shall automatically be added after `\begin{document}`, thus you don't need to write it by yourself.
+
+> Note that, for this to work, `\title`, `\author` and `\date`, etc. should be placed before `\begin{document}`.
 
 #### Regarding the numbering
 

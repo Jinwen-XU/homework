@@ -12,7 +12,7 @@
 \NeedsTeXFormat{LaTeX2e}[2022-06-01]
 \ProvidesExplClass
   {homework}
-  {2023/10/01} {}
+  {2023/10/15} {}
   {Document class for writing homework}
 
 \keys_define:nn { homework }
@@ -171,9 +171,14 @@
     \ResumeLineNumbers
   }
 
-\AddToHook { begindocument/end }
+\def\@title{}
+
+\hook_gput_code:nnn { begindocument/end } { homework }
   {
-    \maketitle
+    \tl_if_empty:NF \@title
+      {
+        \maketitle
+      }
   }
 
 %%================================
