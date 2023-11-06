@@ -37,7 +37,7 @@ Also, without these fonts installed, the compilation speed might be much slower 
 
 ## Usage
 
-> It is recommended that you start by looking at one of the demo documents that suits your need and edit the code there to get your own template.
+> It is recommended that you start by looking at one of the [demo documents](https://github.com/Jinwen-XU/homework/tree/main/demo) that suits your need and edit the code there to get your own template.
 
 > If you don't find what you were expecting, or if you would like some elements to be changed or improved, feel free to post a feature request via [the GitHub issue](https://github.com/Jinwen-XU/homework/issues).
 
@@ -111,26 +111,36 @@ A typical homework document looks like this:
 % If you wish to answer each sub-question of a problem separately...
 
 \begin{problem}[A problem with many sub-questions]
-    \begin{enumerate}[itemsep=.5\baselineskip]
+    \begin{enumerate}
         \item First question.
+
         \begin{solution}
             The solution of the first question.
         \end{solution}
+
         \item Second question.
-        \begin{enumerate}[itemsep=.3\baselineskip]
+
+        \begin{enumerate}
             \item First sub-question.
+
             \begin{solution}
                 The solution of the first sub-question.
             \end{solution}
+
             \item Second sub-question.
+
             \begin{solution}
                 The solution of the second sub-question.
             \end{solution}
+
         \end{enumerate}
+
         \item Third question.
+
         \begin{solution}
             The solution of the third question.
         \end{solution}
+
     \end{enumerate}
     \noQED % Use \noqed or \noQED at the end to suppress the Q.E.D. symbol that marks the end of the current problem.
 \end{problem}
