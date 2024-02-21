@@ -1,6 +1,6 @@
 %%
-%% Copyright (C) 2023 by Jinwen XU
-%% -------------------------------
+%% Copyright (C) 2023-2024 by Jinwen XU
+%% ------------------------------------
 %%
 %% This file may be distributed and/or modified under the conditions of
 %% the LaTeX Project Public License, either version 1.3c of this license
@@ -12,7 +12,7 @@
 \NeedsTeXFormat{LaTeX2e}[2022-06-01]
 \ProvidesExplClass
   {homework}
-  {2023/10/15} {}
+  {2024/02/21} {}
   {Document class for writing homework}
 
 \keys_define:nn { homework }
@@ -289,7 +289,24 @@
 
 \newcounter { homework }
 \SetTheorem { problem, question, exercise } { shared counter = homework }
-\SetTheorem { definition, lemma, theorem, proposition, corollary, example, fact, remark, assertion, assumption, claim, conclusion, conjecture, construction, convention, notation, observation, property, recall } { number within = homework }
+\SetTheorem { definition, lemma, theorem, proposition, corollary, example, fact, remark, assertion, assumption, claim, commentary, conclusion, conjecture, construction, convention, hypothesis, motivation, notation, observation, postulate, property, recall } { number within = homework }
+\SetTheorem { definitions, lemmas, theorems, propositions, corollaries, examples, facts, remarks, assertions, assumptions, claims, commentaries, conclusions, conjectures, constructions, conventions, hypotheses, motivations, notations, observations, postulates, properties, recalls } { number within = homework }
+
+%%================================
+%%  Custom numbering
+%%================================
+
+\tl_new:N \l__homework_counter_backup_tl
+\NewDocumentCommand \ManualNumbering { m m }
+  {
+    \addtocounter { #1 } { -1 }
+    \tl_set_eq:Nc \l__homework_counter_backup_tl { the #1 }
+    \tl_set:cn { the #1 } { #2 }
+    \hook_gput_next_code:nn { env/#1/after }
+      {
+        \tl_set_eq:cN { the #1 } \l__homework_counter_backup_tl
+      }
+  }
 
 %%================================
 %%  Hide solution

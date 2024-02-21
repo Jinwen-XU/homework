@@ -1,4 +1,4 @@
-<!-- Copyright (C) 2023 by Jinwen XU -->
+<!-- Copyright (C) 2023-2024 by Jinwen XU -->
 
 # `homework`, a LaTeX class for writing your homework
 
@@ -17,7 +17,7 @@ The current document class is for writing homework or assignment. It has the fol
 
 ### How to install this package
 
-If you are using TeX Live 2024 or newer, or the most recent version of MikTeX, then this package should already be included, and you don't need to do anything.
+If you are using TeX Live 2024 or newer, or the most recent version of MiKTeX, then this package should already be included, and you don't need to do anything.
 
 Otherwise, you need to check for package update to see if you can receive it. In case not, you can always go to [the CTAN page](https://ctan.org/pkg/homework) to download the `.zip` file with all related files included.
 
@@ -229,7 +229,9 @@ A new counter named `homework` is defined, which is shared by the environments `
 
 Therefore, if you wish to manually change the numbering, you may directly access the value of the counter `homework`. Also, each theorem-type environment has its own counter, thus it would still work if you write `\setcounter{exercise}{10}`, but this would also affect the numbering of `problem` and `question`, so don't forget to reset the value as needed.
 
-If you wish them to be numbered separately, you may define new counters, say `problem-counter`, `question-counter` and `exercise-counter` via
+Alternatively, you may use the command `\ManualNumbering{⟨env⟩}{⟨number⟩}`. For example, `\ManualNumbering{exercise}{A.1.1}` will change the number of the next exercise to `A.1.1`, but after that the numbering shall go back to the normal one.
+
+If you wish these environments to be numbered separately, you may define new counters, say `problem-counter`, `question-counter` and `exercise-counter` via
 ```latex
 \newcounter{problem-counter}
 \newcounter{question-counter}

@@ -23,7 +23,7 @@
 \author{著者名}
 % \date{\today、所在地}
 % \date{\today[only-year-month]、所在地}
-\date{\TheDate{2023-12-25}、所在地}
+\date{\TheDate{2024-01-01}、所在地}
 
 
 \begin{document}
@@ -76,6 +76,9 @@
 \end{answer}
 
 
+\enlargethispage*{2\baselineskip}
+
+
 \bigskip\textcolor{gray!55}{（伝統的な証明スタイルがお好みなら…）}
 
 \begin{proof}
@@ -120,6 +123,18 @@
     現在の問題の終わりを示す Q.E.D. シンボルを表示しないようにするには、最後に \cverb|\noqed|（または \cverb|\noQED|）を使う。
     \noQED
 \end{problem}
+
+
+\bigskip\textcolor{gray!55}{（練習に手動で番号を付けたい場合は…）}
+
+\ManualNumbering{exercise}{A.1.1}
+\begin{exercise}[手動で番号を付けた練習]
+    \cverb|\ManualNumbering| を使用して、手動で練習に番号を付けます。この番号付けは、次に指定された環境にのみ影響します。
+\end{exercise}
+
+\begin{exercise}
+    その後、番号付けは通常に戻ります。
+\end{exercise}
 
 
 \bigskip\textcolor{gray!55}{（一時的に解決できない問題がある場合は…）}

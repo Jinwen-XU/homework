@@ -23,7 +23,7 @@
 \author{Vorname NAME}
 % \date{\today, der Standort}
 % \date{\today[only-year-month], der Standort}
-\date{\TheDate{2023-12-25}, der Standort}
+\date{\TheDate{2024-01-01}, der Standort}
 
 
 \begin{document}
@@ -75,9 +75,7 @@
 \end{answer}
 
 
-\enlargethispage*{3\baselineskip}
-
-
+\enlargethispage{.5\baselineskip}
 \bigskip\textcolor{gray!55}{(Wenn Sie den klassischen Proof-Stil bevorzugen ...)}
 
 \begin{proof}
@@ -122,6 +120,18 @@
     Verwenden Sie \cverb|\noqed| (oder \cverb|\noQED|) am Ende, um das Q.E.D.-Symbol zu unterdrücken, das das Ende des aktuellen Problems markiert.
     \noQED
 \end{problem}
+
+
+\bigskip\textcolor{gray!55}{(Wenn Sie die Übung manuell nummerieren möchten...)}
+
+\ManualNumbering{exercise}{A.1.1}
+\begin{exercise}[Eine Übung mit manuell festgelegter Nummerierung]
+    Verwenden Sie \cverb|\ManualNumbering| um die Nummerierung manuell festzulegen. Diese Nummerierung wird erst auf die nächste angegebene Umgebung angewendet.
+\end{exercise}
+
+\begin{exercise}
+    Zurück zur normalen Nummerierung.
+\end{exercise}
 
 
 \bigskip\textcolor{gray!55}{(Wenn es eine Frage gibt, für die Sie im Moment keine Lösung finden können ...)}

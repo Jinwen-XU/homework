@@ -23,7 +23,7 @@
 \author{作者}
 % \date{\today，地點}
 % \date{\today[only-year-month]，地點}
-\date{\TheDate{2023-12-25}，地點}
+\date{\TheDate{2024-01-01}，地點}
 
 
 \begin{document}
@@ -75,7 +75,7 @@
 \end{answer}
 
 
-\enlargethispage*{3\baselineskip}
+\enlargethispage*{\baselineskip}
 
 
 \bigskip\textcolor{gray!55}{（或者如果你更喜歡傳統的證明樣式…）}
@@ -122,6 +122,18 @@
     在末尾使用 \cverb|\noqed|（或 \cverb|\noQED|）可以取消用於標記當前問題結束的方框。
     \noQED
 \end{problem}
+
+
+\bigskip\textcolor{gray!55}{（如果你希望手動編號一個習題…）}
+
+\ManualNumbering{exercise}{A.1.1}
+\begin{exercise}[一個手動編號的習題]
+    使用 \cverb|\ManualNumbering| 以手動對某個習題進行編號。 這個編號只會影響下一個被指定的環境。
+\end{exercise}
+
+\begin{exercise}
+    之後編號便會恢復正常。
+\end{exercise}
 
 
 \bigskip\textcolor{gray!55}{（如果你有暫時解決不出來的問題…）}

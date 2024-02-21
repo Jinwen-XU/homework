@@ -23,7 +23,7 @@
 \author{作者}
 % \date{\today，地点}
 % \date{\today[only-year-month]，地点}
-\date{\TheDate{2023-12-25}，地点}
+\date{\TheDate{2024-01-01}，地点}
 
 
 \begin{document}
@@ -75,7 +75,7 @@
 \end{answer}
 
 
-\enlargethispage*{3\baselineskip}
+\enlargethispage*{\baselineskip}
 
 
 \bigskip\textcolor{gray!55}{（或者如果你更喜欢传统的证明样式…）}
@@ -122,6 +122,18 @@
     在末尾使用 \cverb|\noqed|（或 \cverb|\noQED|）可以取消标记用于当前问题结束的方框。
     \noQED
 \end{problem}
+
+
+\bigskip\textcolor{gray!55}{（如果你希望手动编号一个习题…）}
+
+\ManualNumbering{exercise}{A.1.1}
+\begin{exercise}[一个手动编号的习题]
+    使用 \cverb|\ManualNumbering| 以手动对某个习题进行编号。这个编号只会影响下一个被指定的环境。
+\end{exercise}
+
+\begin{exercise}
+    之后编号便会恢复正常。
+\end{exercise}
 
 
 \bigskip\textcolor{gray!55}{（如果你有暂时解决不出来的问题…）}
