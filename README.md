@@ -39,7 +39,7 @@ Also, without these fonts installed, the compilation speed might be much slower 
 
 > It is recommended that you start by looking at one of the [demo documents](https://github.com/Jinwen-XU/homework/tree/main/demo) that suits your need and edit the code there to get your own template.
 
-> If you don't find what you were expecting, or if you would like some elements to be changed or improved, feel free to post a feature request via [the GitHub issue](https://github.com/Jinwen-XU/homework/issues).
+> If you cannot find what you are expecting, or if you would like some elements to be changed or improved, feel free to post a feature request via [the GitHub issue](https://github.com/Jinwen-XU/homework/issues).
 
 A typical homework document looks like this:
 
@@ -62,7 +62,7 @@ A typical homework document looks like this:
 
 \title{The Subject, Week 1}
 \author{Author NAME}
-\date{\TheDate{2023-12-25}, Location} % or: \date{\today[only-year-month], Location}
+\date{\TheDate{2024-01-01}, Location} % or: \date{\today[only-year-month], Location}
 
 
 \begin{document}
@@ -173,7 +173,7 @@ Alternatively, if you are making an exercise sheet and prefer a more formal titl
     \\
                     Course ID \& Course Name
     \hfill
-                    Year 2023--24
+                    Year 2024--25
 }
 
 \title{%
@@ -181,7 +181,7 @@ Alternatively, if you are making an exercise sheet and prefer a more formal titl
 }
 \author{}
 \date{%
-                    % \TheDate{2023-12-25}
+                    % \TheDate{2024-01-01}
 }
 
 
