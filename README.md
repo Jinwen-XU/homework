@@ -13,6 +13,8 @@ The current document class is for writing homework or assignment. It has the fol
 - Every statement and solution has its own Q.E.D. symbol, in hollow or solid shape, respectively.
 - You may mark unfinished parts with `\DNF` or `\DNF<⟨remark⟩>` (meaning "did not finish") for reminding — this will give you a clickable report on the unfinished parts at the end of your document.
 
+> Package dependencies: [*`einfart`*](https://ctan.org/pkg/minimalist), [`lastpage`](https://ctan.org/pkg/lastpage), [`minimalist`](https://ctan.org/pkg/minimalist), [`projlib`](https://ctan.org/pkg/projlib), [`verbatim`](https://ctan.org/pkg/verbatim).
+
 ## Installation and preparation
 
 ### How to install this package
