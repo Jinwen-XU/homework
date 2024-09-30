@@ -12,7 +12,7 @@
 \NeedsTeXFormat{LaTeX2e}[2022-06-01]
 \ProvidesExplClass
   {homework}
-  {2024/02/21} {}
+  {2024/09/30} {}
   {Document class for writing homework}
 
 \keys_define:nn { homework }
@@ -58,6 +58,22 @@
     , remove~qed    .bool_set:N   = \l__homework_no_qed_bool
     , remove qed    .bool_set:N   = \l__homework_no_qed_bool
 
+    , remove-problem-qed    .bool_set:N   = \l__homework_no_qed_problem_bool
+    , remove-problem-qed    .initial:n    = { false }
+    , remove~problem~qed    .bool_set:N   = \l__homework_no_qed_problem_bool
+    , remove problem qed    .bool_set:N   = \l__homework_no_qed_problem_bool
+    , remove-question-qed   .bool_set:N   = \l__homework_no_qed_problem_bool
+    , remove~question~qed   .bool_set:N   = \l__homework_no_qed_problem_bool
+    , remove question qed   .bool_set:N   = \l__homework_no_qed_problem_bool
+
+    , remove-solution-qed   .bool_set:N   = \l__homework_no_qed_solution_bool
+    , remove-solution-qed   .initial:n    = { false }
+    , remove~solution~qed   .bool_set:N   = \l__homework_no_qed_solution_bool
+    , remove solution qed   .bool_set:N   = \l__homework_no_qed_solution_bool
+    , remove-answer-qed     .bool_set:N   = \l__homework_no_qed_solution_bool
+    , remove~answer~qed     .bool_set:N   = \l__homework_no_qed_solution_bool
+    , remove answer qed     .bool_set:N   = \l__homework_no_qed_solution_bool
+
     , unknown       .code:n       = {
                                       \PassOptionsToClass { \CurrentOption } { minimart }
                                       \PassOptionsToClass { \CurrentOption } { einfart }
@@ -70,9 +86,15 @@
 %%  Load the base class
 %%================================
 
+\bool_if:NT \l__homework_no_qed_bool
+  {
+    \bool_set_true:N \l__homework_no_qed_problem_bool
+    \bool_set_true:N \l__homework_no_qed_solution_bool
+  }
+
 \sys_if_engine_pdftex:TF
   {
-    \bool_if:NF \l__homework_no_qed_bool
+    \bool_if:NF \l__homework_no_qed_problem_bool
       {
         \PassOptionsToClass { theorem with qed } { minimart }
       }
@@ -80,7 +102,7 @@
     \LoadClass { minimart }
   }
   {
-    \bool_if:NF \l__homework_no_qed_bool
+    \bool_if:NF \l__homework_no_qed_problem_bool
       {
         \PassOptionsToClass { theorem with qed } { einfart }
       }
@@ -271,8 +293,11 @@
     \ignorespaces
   }
   {
-    \pushQED{\qed}
-    \popQED\endtrivlist\@endpefalse
+    \bool_if:NF \l__homework_no_qed_solution_bool
+      {
+        \pushQED{\qed}
+        \popQED\endtrivlist\@endpefalse
+      }
   }
 
 \NewDocumentEnvironment { answer } { O{ \l__homework_answer_tl } }

@@ -47,16 +47,18 @@ A typical homework document looks like this:
 
 ```latex
 \documentclass[a4paper, 11pt,
-  % twoside,                            % Use this option if you wish to use double-sided printing
+  % twoside,                            % Use this option if you wish to use double-sided printing.
   logo = {image-of-university-logo},    % Remove this line if you don't want logo presented.
   % logo height = 1cm,                  % In case you are not satisfied with the default logo size.
   title in boldface,
   title in sffamily,
-  theorem in new line,
-  % remove qed,                         % Remove the Q.E.D. symbol for problems/questions/lemmas/...
-  colored solution,                     % Show solution/answer with color, default is blue
-                                        % You may specify this as "colored solution = ⟨color⟩"
-  % hide solution,                      % Use this option to hide the solutions/answers
+  theorem in new line,                  % Print the theorem title in a separate line.
+  % remove qed,                         % Remove the Q.E.D. symbols,
+                                        %   or only remove part of the Q.E.D. symbols,
+                                        %   via "remove problem qed" or "remove solution qed".
+  colored solution,                     % Show solution/answer with color, default is blue.
+                                        %   You may specify this as "colored solution = ⟨color⟩".
+  % hide solution,                      % Use this option to hide the solutions/answers.
 ]{homework}
 
 \UseLanguage{...} % If you wish to write your homework in languages other than English.
@@ -199,7 +201,9 @@ Regarding some of the class options:
 1) The logo image can be included via the class option `logo = {⟨image file name⟩}`, and if you are not satisfied with its default size, then you may manually specify the size via the option `logo height = {⟨height⟩}` or `logo width = {⟨width⟩}`. If you do not want to show any logo in the title bar, you may simply remove the option `logo = {⟨image file name⟩}`.
 1) The options `title in boldface`, `title in sffamily` or even `title in scshape` are for configuring the text effect of the title line, the sectional titles and theorem names.
 1) The option `theorem in new line` is for showing the problem / theorem name, numbering and description in a separate line, for the sake of clarity.
-1) The option `remove qed` is for removing the Q.E.D. symbol for theorem-type environment.
+1) The option `remove qed` is for removing all the Q.E.D. symbol.
+    - If you only wish to remove the Q.E.D. symbol for problems/questions/lemmas/..., use `remove problem qed` or `remove question qed` (they are the same).
+    - If you only wish to remove the Q.E.D. symbol for solutions/answers, use `remove solution qed` or `remove answer qed` (they are the same).
 1) The option `formal title` is for enabling the formal title style. There would be no logo and no separation lines, and the title would be centered.
 1) The option `colored solution` or `colored solution = ⟨color⟩` is for setting the text color of the solution/answer.
 1) The option `hide solution` (or `hide answer`) is for hiding the `solution` and `answer` environments.
@@ -250,6 +254,8 @@ and then write this in your preamble:
 ## Acknowledgement
 
 The author would like to thank David García-Zelada for his valuable help with the Spanish language. He kindly demonstrated to me the difference between the "Tutoyer" and "Vouvoyer" version, patiently corrected many inaccuracies in the demo documents, and also pointed out a few improper translations in some of my other packages.
+
+The author would also like to thank his friend Junzhuo Zhao for his valuable help with the German language. Danke schön!
 
 
 ## License
