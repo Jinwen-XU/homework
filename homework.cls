@@ -323,6 +323,10 @@
 \SetTheorem { definition, lemma, theorem, proposition, corollary, example, fact, remark, assertion, assumption, claim, commentary, conclusion, conjecture, construction, convention, hypothesis, motivation, notation, observation, postulate, property, recall } { number within = homework }
 \SetTheorem { definitions, lemmas, theorems, propositions, corollaries, examples, facts, remarks, assertions, assumptions, claims, commentaries, conclusions, conjectures, constructions, conventions, hypotheses, motivations, notations, observations, postulates, properties, recalls } { number within = homework }
 
+%% Restore proof environment to use its own amsthm QED mechanism
+%% instead of the "theorem with qed" option, to fix nested proof issues
+\SetTheorem { proof } { }
+
 %%================================
 %%  Custom numbering
 %%================================
