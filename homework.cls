@@ -94,18 +94,10 @@
 
 \sys_if_engine_pdftex:TF
   {
-    \bool_if:NF \l__homework_no_qed_problem_bool
-      {
-        \PassOptionsToClass { theorem with qed } { minimart }
-      }
     \PassOptionsToClass { use indent = false } { minimart }
     \LoadClass { minimart }
   }
   {
-    \bool_if:NF \l__homework_no_qed_problem_bool
-      {
-        \PassOptionsToClass { theorem with qed } { einfart }
-      }
     \PassOptionsToClass { use indent = false } { einfart }
     \LoadClass { einfart }
   }
@@ -291,10 +283,16 @@
     \item[\hskip\labelsep\soluline{#1}\nobreakspace\nobreakspace]
     \let\qedsymbol\customqedsymbol
     \ignorespaces
-    \pushQED{\qed}
+    \bool_if:NF \l__homework_no_qed_solution_bool
+      {
+        \pushQED{\qed}
+      }
   }
   {
-    \bool_if:NF \l__homework_no_qed_solution_bool
+    \bool_if:NTF \l__homework_no_qed_solution_bool
+      {
+        \endtrivlist\@endpefalse
+      }
       {
         \popQED\endtrivlist\@endpefalse
       }
