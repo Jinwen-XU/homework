@@ -291,11 +291,11 @@
     \item[\hskip\labelsep\soluline{#1}\nobreakspace\nobreakspace]
     \let\qedsymbol\customqedsymbol
     \ignorespaces
-    \pushQED{\qed}
   }
   {
     \bool_if:NF \l__homework_no_qed_solution_bool
       {
+        \pushQED{\qed}
         \popQED\endtrivlist\@endpefalse
       }
   }
