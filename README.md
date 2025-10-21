@@ -1,4 +1,4 @@
-<!-- Copyright (C) 2023-2024 by Jinwen XU -->
+<!-- Copyright (C) 2023-2025 by Jinwen XU -->
 
 # `homework`, a LaTeX class for writing your homework
 
@@ -13,7 +13,7 @@ The current document class is for writing homework or assignment. It has the fol
 - Every statement and solution has its own Q.E.D. symbol, in hollow or solid shape, respectively.
 - You may mark unfinished parts with `\DNF` or `\DNF<⟨remark⟩>` (meaning "did not finish") for reminding — this will give you a clickable report on the unfinished parts at the end of your document.
 
-> Package dependencies: [*`einfart`*](https://ctan.org/pkg/minimalist), [`lastpage`](https://ctan.org/pkg/lastpage), [`minimalist`](https://ctan.org/pkg/minimalist), [`projlib`](https://ctan.org/pkg/projlib), [`verbatim`](https://ctan.org/pkg/verbatim).
+> Package dependencies: [*`einfart`*](https://ctan.org/pkg/einfart), [`lastpage`](https://ctan.org/pkg/lastpage), [`minimalist`](https://ctan.org/pkg/minimalist), [`projlib`](https://ctan.org/pkg/projlib), [`verbatim`](https://ctan.org/pkg/verbatim).
 
 ## Installation and preparation
 
@@ -66,7 +66,7 @@ A typical homework document looks like this:
 
 \title{The Subject, Week 1}
 \author{Author NAME}
-\date{\TheDate{2024-01-01}, Location} % or: \date{\today[only-year-month], Location}
+\date{\TheDate{2025-01-01}, Location} % or: \date{\today[only-year-month], Location}
 
 
 \begin{document}
@@ -177,7 +177,7 @@ Alternatively, if you are making an exercise sheet and prefer a more formal titl
     \\
                     Course ID \& Course Name
     \hfill
-                    Year 2024--25
+                    Year 2025--26
 }
 
 \title{%
@@ -185,7 +185,7 @@ Alternatively, if you are making an exercise sheet and prefer a more formal titl
 }
 \author{}
 \date{%
-                    % \TheDate{2024-01-01}
+                    % \TheDate{2025-01-01}
 }
 
 

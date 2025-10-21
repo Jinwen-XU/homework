@@ -1,5 +1,5 @@
 %%
-%% Copyright (C) 2023-2024 by Jinwen XU
+%% Copyright (C) 2023-2025 by Jinwen XU
 %% ------------------------------------
 %%
 %% This file may be distributed and/or modified under the conditions of
@@ -12,7 +12,7 @@
 \NeedsTeXFormat{LaTeX2e}[2022-06-01]
 \ProvidesExplClass
   {homework}
-  {2024/09/30} {}
+  {2024/10/21} {}
   {Document class for writing homework}
 
 \keys_define:nn { homework }
@@ -290,14 +290,12 @@
     \color{\l__homework_solution_color_tl}
     \item[\hskip\labelsep\soluline{#1}\nobreakspace\nobreakspace]
     \let\qedsymbol\customqedsymbol
+    \bool_if:NF \l__homework_no_qed_solution_bool { \pushQED{\qed} }
     \ignorespaces
   }
   {
-    \bool_if:NF \l__homework_no_qed_solution_bool
-      {
-        \pushQED{\qed}
-        \popQED\endtrivlist\@endpefalse
-      }
+    \bool_if:NF \l__homework_no_qed_solution_bool { \popQED }
+    \endtrivlist\@endpefalse
   }
 
 \NewDocumentEnvironment { answer } { O{ \l__homework_answer_tl } }
