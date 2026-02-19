@@ -1,4 +1,4 @@
-<!-- Copyright (C) 2023-2025 by Jinwen XU -->
+<!-- Copyright (C) 2023-2026 by Jinwen XU -->
 
 # `homework`, a LaTeX class for writing your homework
 
@@ -66,7 +66,7 @@ A typical homework document looks like this:
 
 \title{The Subject, Week 1}
 \author{Author NAME}
-\date{\TheDate{2025-01-01}, Location} % or: \date{\today[only-year-month], Location}
+\date{\TheDate{2026-01-01}, Location} % or: \date{\today[only-year-month], Location}
 
 
 \begin{document}
@@ -177,7 +177,7 @@ Alternatively, if you are making an exercise sheet and prefer a more formal titl
     \\
                     Course ID \& Course Name
     \hfill
-                    Year 2025--26
+                    Year 2026--27
 }
 
 \title{%
@@ -185,7 +185,7 @@ Alternatively, if you are making an exercise sheet and prefer a more formal titl
 }
 \author{}
 \date{%
-                    % \TheDate{2025-01-01}
+                    % \TheDate{2026-01-01}
 }
 
 

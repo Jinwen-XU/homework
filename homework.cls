@@ -1,5 +1,5 @@
 %%
-%% Copyright (C) 2023-2025 by Jinwen XU
+%% Copyright (C) 2023-2026 by Jinwen XU
 %% ------------------------------------
 %%
 %% This file may be distributed and/or modified under the conditions of
@@ -12,7 +12,7 @@
 \NeedsTeXFormat{LaTeX2e}[2022-06-01]
 \ProvidesExplClass
   {homework}
-  {2024/10/21} {}
+  {2026/02/20} {}
   {Document class for writing homework}
 
 \keys_define:nn { homework }
